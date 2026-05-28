@@ -64,54 +64,67 @@
 // }
 //=====================================================
 // class MyRunnable implements Runnable 
-class DigitThread extends Thread {
+// class DigitThread extends Thread {
 
+//     public void run() {
+
+//         for(int i = 1; i <= 5; i++) {
+
+//             System.out.println(i);
+
+//             try {
+//                 Thread.sleep(500);
+//             }
+
+//             catch(Exception e) {
+
+//             }
+//         }
+//     }
+// }
+
+// class LetterThread extends Thread {
+
+//     public void run() {
+
+//         for(char ch = 'A'; ch <= 'E'; ch++) {
+
+//             System.out.println(ch);
+
+//             try {
+//                 Thread.sleep(500);
+//             }
+
+//             catch(Exception e) {
+
+//             }
+//         }
+//     }
+// }
+
+// public class ThreadExample {
+
+//     public static void main(String[] args) {
+
+//         DigitThread d = new DigitThread();
+
+//         LetterThread l = new LetterThread();
+
+//         d.start();
+
+//         l.start();
+//     }
+// }
+//=====================================================
+class Task implements Runnable {
     public void run() {
-
-        for(int i = 1; i <= 5; i++) {
-
-            System.out.println(i);
-
-            try {
-                Thread.sleep(500);
-            }
-
-            catch(Exception e) {
-
-            }
-        }
+        System.out.println("Task is running");
     }
 }
-
-class LetterThread extends Thread {
-
-    public void run() {
-
-        for(char ch = 'A'; ch <= 'E'; ch++) {
-
-            System.out.println(ch);
-
-            try {
-                Thread.sleep(500);
-            }
-
-            catch(Exception e) {
-
-            }
-        }
-    }
-}
-
 public class ThreadExample {
-
     public static void main(String[] args) {
-
-        DigitThread d = new DigitThread();
-
-        LetterThread l = new LetterThread();
-
-        d.start();
-
-        l.start();
-    }
+        Task task = new Task();
+        Thread t = new Thread(task);
+        t.run();
+}
 }
